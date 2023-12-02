@@ -49,7 +49,7 @@ docker exec nom_du_conteneur_web composer install
 Pour démarrer l'application, utilisez la commande suivante :
 
 ```bash
-docker exec nom_du_conteneur_web php artisan migrate
+./vendor/bin/sail up
 ```
 Ouvrez votre navigateur web et accédez à http://localhost/actions pour voir l'application en action.
 
@@ -85,7 +85,8 @@ docker exec web-work2-laravel.test-1 php artisan make:model Action
 # Créer un controller
 docker exec web-work2-laravel.test-1 php artisan make:controller ActionController
 # Après avoir créer le model et le controller, ajouter les routes dans le fichier web.php puis lancez le serveur
-docker exec web-work2-laravel.test-1 php artisan serve
+./vendor/bin/sail up
+# docker exec web-work2-laravel.test-1 php artisan serve
 
 # Créer un factory et un seeder pour peupler la base de données
 docker exec web-work2-laravel.test-1 php artisan make:factory ActionFactory --model=Action
