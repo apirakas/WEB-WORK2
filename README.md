@@ -79,7 +79,7 @@ Fonctionnalités
 - Modification de ventes d'actions existantes
 - Suppression de ventes d'actions
 
-Quelques ommandes utilisées
+Quelques commandes utilisées
 ```bash
 # Télécharger laravel
 curl -s "https://laravel.build/WEB-WORK2?with=mysql&devcontainer" | bash
