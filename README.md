@@ -26,10 +26,22 @@ Clonez ce dépôt sur votre machine locale :
 git git@github.com:apirakas/WEB-WORK2.git
 ```
 
+Déplacez-vous dans le dossier du projet :
+
+```bash
+cd WEB-WORK2
+```
+
 Construisez et démarrez les conteneurs Docker :
 
 ```bash
-docker-compose up -d
+docker compose up -d
+```
+
+Installer les dépendances PHP :
+
+```bash
+docker exec nom_du_conteneur_web composer install
 ```
 
 ## Utilisation
@@ -37,13 +49,13 @@ docker-compose up -d
 Pour démarrer l'application, utilisez la commande suivante :
 
 ```bash
-docker exec nom_du_conteneur_web php artisan serve
+docker exec nom_du_conteneur_web php artisan migrate
 ```
-Ouvrez votre navigateur web et accédez à http://localhost:8000 pour voir l'application en action.
+Ouvrez votre navigateur web et accédez à http://localhost/actions pour voir l'application en action.
 
 
 Pour peupler la base de données avec des données de test, utilisez la commande suivante :
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Toutes les devises sont autorisées mais c'est uniquement pour un exmeple de fonctionnement de l'application.
 
 ```bash
@@ -57,6 +69,7 @@ Fonctionnalités
 - Suppression de ventes d'actions
 
 Commandes utilisées
+```bash
 # Télécharger laravel
 curl -s "https://laravel.build/WEB-WORK2?with=mysql&devcontainer" | bash
 # Démarrer les conteneurs
@@ -78,6 +91,8 @@ docker exec web-work2-laravel.test-1 php artisan serve
 docker exec web-work2-laravel.test-1 php artisan make:factory ActionFactory --model=Action
 docker exec web-work2-laravel.test-1 php artisan make:seeder ActionsTableSeeder
 docker exec web-work2-laravel.test-1 php artisan db:seed --class=ActionsTableSeeder
+```
+
 
 
 
