@@ -56,4 +56,28 @@ Fonctionnalités
 - Modification de ventes d'actions existantes
 - Suppression de ventes d'actions
 
+Commandes utilisées
+# Télécharger laravel
+curl -s "https://laravel.build/WEB-WORK2?with=mysql&devcontainer" | bash
+# Démarrer les conteneurs
+cd WEB-WORK2 && docker compose up -d
+# Créer un le fichier pour la base de données
+docker exec web-work2-laravel.test-1 php artisan make:migration create_actions_table
+# Après avoir rempli le fichier créer la base de données
+docker exec web-work2-laravel.test-1 php artisan migrate
+# supprime et création de la base de données
+# docker exec web-work2-laravel.test-1 php artisan migrate:fresh
+# Créer un model
+docker exec web-work2-laravel.test-1 php artisan make:model Action
+# Créer un controller
+docker exec web-work2-laravel.test-1 php artisan make:controller ActionController
+# Après avoir créer le model et le controller, ajouter les routes dans le fichier web.php puis lancez le serveur
+docker exec web-work2-laravel.test-1 php artisan serve
+
+# Créer un factory et un seeder pour peupler la base de données
+docker exec web-work2-laravel.test-1 php artisan make:factory ActionFactory --model=Action
+docker exec web-work2-laravel.test-1 php artisan make:seeder ActionsTableSeeder
+docker exec web-work2-laravel.test-1 php artisan db:seed --class=ActionsTableSeeder
+
+
 
