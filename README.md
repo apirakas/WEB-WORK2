@@ -46,6 +46,12 @@ docker exec nom_du_conteneur_web composer install
 
 ## Utilisation
 
+Configurer les variables .env
+
+```bash
+mv .env.example .env
+```
+
 Pour démarrer l'application, utilisez la commande suivante :
 
 ```bash
@@ -62,13 +68,18 @@ Pour peupler la base de données avec des données de test, utilisez la commande
 docker exec nom_du_conteneur_web php artisan db:seed --class=ActionsTableSeeder
 ```
 
+Fermer Docker
+```bash
+docker compose down
+```
+
 Fonctionnalités
 - Affichage d'un inventaire de ventes d'actions
 - Ajout de nouvelles ventes d'actions
 - Modification de ventes d'actions existantes
 - Suppression de ventes d'actions
 
-Commandes utilisées
+Quelques ommandes utilisées
 ```bash
 # Télécharger laravel
 curl -s "https://laravel.build/WEB-WORK2?with=mysql&devcontainer" | bash
